@@ -1,0 +1,13 @@
+---
+- name: install postgres packages
+  apt: name={{item}} state=present
+  sudo: yes
+  with_items:
+    - postgresql-{{postgres_version}}
+    - postgresql-server-dev-{{postgres_version}}
+    - postgresql-contrib
+
+- name: set postgresql pg_hba.conf
+  action: copy src=./pg_hba.conf dest=/etc/postgresql/{{postgres_version}}/main/pg_hba.conf
+  sudo: yes
+  notify: restart postgresql

@@ -1,0 +1,21 @@
+---
+- name: update packages info
+  apt: update_cache=yes
+  sudo: yes
+
+- name: install packages
+  apt: name={{item}} state=present
+  sudo: yes
+  with_items:
+    - htop
+    - git
+    - redis-server
+    - memcached
+    - nginx
+    - python-psycopg2
+    - imagemagick
+    - unicorn
+    - ruby-dev
+    - libxml2
+    - libxml2-dev
+    - libxslt1-dev

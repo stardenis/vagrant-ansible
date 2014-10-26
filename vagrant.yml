@@ -1,0 +1,9 @@
+---
+- hosts: vagrant
+  user: vagrant
+
+  roles:
+    - common
+    - ruby
+    - postgres
+    - environment

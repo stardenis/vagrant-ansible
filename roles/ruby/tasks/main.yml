@@ -1,0 +1,9 @@
+---
+- name: install RVM
+  shell: "curl -sSL https://get.rvm.io | bash -s stable creates={{rvm_path}}"
+
+- name: install Ruby
+  shell: "{{rvm_path}}/bin/rvm install --default {{ruby_version}} creates={{rvm_path}}/rubies/ruby-{{ruby_version}}"
+
+- name: install bundler
+  gem: name=bundler state=present
