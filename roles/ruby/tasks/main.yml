@@ -1,4 +1,7 @@
 ---
+- name: import RVM gpg
+  shell: "curl -sSL https://rvm.io/mpapis.asc | gpg --import -"
+  
 - name: install RVM
   shell: "curl -sSL https://get.rvm.io | bash -s stable creates={{rvm_path}}"
 
