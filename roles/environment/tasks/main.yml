@@ -1,13 +1,12 @@
 ---
 - name: install zsh
-  shell: "curl -L http://install.ohmyz.sh | sh creates=~/.oh-my-zsh"
-  sudo: yes
+  git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
+
+- name: clone dotfiles repo
+  git: repo={{dotfiles_repo}} dest=~/.dotfiles version=HEAD
+  notify: install dotfiles
 
 - name: Set zsh as default shell
   user: name={{ansible_env.USER}} shell=/bin/zsh
   sudo: yes
   when: ansible_env.SHELL != '/bin/zsh'
-
-- name: clone dotfiles repo
-  git: repo={{dotfiles_repo}} dest=~/.dotfiles version=HEAD
-  notify: install dotfiles
