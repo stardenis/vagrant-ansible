@@ -9,10 +9,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network "private_network", ip: "10.11.12.13"
   config.ssh.forward_agent = true
-  config.vm.synced_folder "/projects", "/home/vagrant/projects", nfs: true, mount_options: ['rw', 'vers=3', 'tcp', 'fsc' ,'actimeo=2']
+  config.vm.synced_folder "~/denis-projects", "/home/vagrant/denis-projects", nfs: true, mount_options: ['rw', 'vers=3', 'tcp', 'fsc' ,'actimeo=2']
   config.vm.provision :ansible do |ansible|
-    ansible.inventory_path = "./ansible/hosts"
-    ansible.playbook = "./ansible/vagrant.yml"
+    ansible.inventory_path = "../hosts"
+    ansible.playbook = "../vagrant.yml"
     ansible.extra_vars = { ansible_ssh_user: 'vagrant' }
     ansible.limit = 'all'
   end
