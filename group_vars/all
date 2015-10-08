@@ -1,6 +1,6 @@
-ruby_version: 2.1.2
+ruby_version: 2.2.0
 rvm_path: /home/vagrant/.rvm
 postgres_version: 9.3
-dotfiles_repo: https://github.com/PanfilovDenis/dotfiles.git
-git_autorname: PanfilovDenis
-git_authoremail: panf.denis@gmail.com
+dotfiles_repo: https://github.com/stardenis/vagrant-ansible.git
+git_autorname: stardenis
+git_authoremail: starshenkov@gmail.com

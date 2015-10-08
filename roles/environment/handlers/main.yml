@@ -1,3 +1,0 @@
----
-- name: install dotfiles
-  shell: "./script/bootstrap --git_authorname {{git_autorname}} --git_authoremail {{git_authoremail}} chdir=~/.dotfiles"
